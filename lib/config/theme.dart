@@ -6,13 +6,13 @@ ThemeData theme() {
     brightness: Brightness.light,
     primary: Colors.white,
     onPrimary: Colors.black,
-    secondary: Colors.blue,
-    onSecondary: Colors.white,
+    secondary: Color(0xFF2350A3),
+    onSecondary: Colors.black,
     error: Colors.red,
     onError: Colors.white,
-    background: Colors.white,
+    background: Color(0xFFDAE0E6),
     onBackground: Colors.black,
-    surface: Colors.white,
+    surface: Colors.black,
     onSurface: Colors.black,
   ));
 }
