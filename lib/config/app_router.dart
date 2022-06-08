@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reddit_ui_clone/screens/home_screen.dart';
+import 'package:reddit_ui_clone/screens/home_screen/home_screen.dart';
 
 class AppRoute {
   static Route onGenerate(RouteSettings settings) {

@@ -31,7 +31,7 @@ class Post {
       authorUsername: "event_loop",
       upvotes: 69,
       comments: 45,
-      timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().hour - 4),
+      timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().day, DateTime.now().hour - 1),
       subRedditIcon: "assets/flutter.png",
     ),
     Post(
@@ -43,7 +43,7 @@ class Post {
       authorUsername: "curiosity_rover",
       upvotes: 600,
       comments: 450,
-      timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().hour - 10),
+      timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().day, DateTime.now().hour - 10),
       subRedditIcon: "assets/news.png",
     ),
     Post(
@@ -55,7 +55,7 @@ class Post {
       authorUsername: "livedata",
       upvotes: 99,
       comments: 500,
-      timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().hour - 2),
+      timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().day, DateTime.now().hour - 2),
       subRedditIcon: "assets/android.png",
     ),
   ];
