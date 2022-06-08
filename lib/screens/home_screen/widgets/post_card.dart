@@ -13,12 +13,12 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 8.0),
       decoration: BoxDecoration(
           border: Border(
               bottom: BorderSide(
                   color: Colors.black.withAlpha(100),
                   width: 0.3))),
-      margin: const EdgeInsets.only(top: 10.0),
       child: Material(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
