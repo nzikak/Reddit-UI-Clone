@@ -15,7 +15,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget{
       backgroundColor: Theme.of(context).colorScheme.surface,
       elevation: 0.0,
       title: SizedBox(
-        height: 32,
+        height: 36,
         child: TextField(
           cursorColor: Colors.black,
           textAlignVertical: TextAlignVertical.center,

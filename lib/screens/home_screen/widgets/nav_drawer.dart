@@ -7,6 +7,7 @@ class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
       child: ListView(
         children: [
           const Divider(),
@@ -38,6 +39,9 @@ class NavDrawer extends StatelessWidget {
                   "r/${subReddit.name}",
                   style: const TextStyle(fontWeight: FontWeight.normal),
                 ),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
               );
             }).toList(),
           ),
@@ -75,6 +79,9 @@ class NavDrawer extends StatelessWidget {
               constraints: const BoxConstraints(),
               icon: const Icon(Icons.star),
             ),
+            onTap: () {
+              Navigator.of(context).pop();
+            },
           ),
           const Divider(),
           Padding(
@@ -90,15 +97,18 @@ class NavDrawer extends StatelessWidget {
               ],
             ),
           ),
-          const ListTile(
-            leading: Icon(Icons.add),
+          ListTile(
+            leading: const Icon(Icons.add),
             minLeadingWidth: 2,
-            contentPadding: EdgeInsets.symmetric(horizontal: 16),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
             visualDensity: VisualDensity.compact,
-            title: Text(
+            title: const Text(
               "Create a community",
               style: TextStyle(fontWeight: FontWeight.normal),
             ),
+            onTap: () {
+              Navigator.of(context).pop();
+            },
           ),
           Column(
             children: SubReddit.communities.map((subReddit) {
@@ -124,12 +134,17 @@ class NavDrawer extends StatelessWidget {
                       ? const Icon(Icons.star)
                       : const Icon(Icons.star_border_outlined),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
               );
             }).toList(),
           ),
           ListTile(
-            leading: const Icon(Icons.feed_outlined),
+            leading: const Icon(
+              Icons.feed_outlined,
+              size: 20,
+            ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
             minLeadingWidth: 2,
             title: const Text(
@@ -144,11 +159,16 @@ class NavDrawer extends StatelessWidget {
               constraints: const BoxConstraints(),
               icon: const Icon(Icons.star_border_outlined),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+            },
           ),
           const Divider(),
           ListTile(
-            leading: const Icon(Icons.bar_chart),
+            leading: const Icon(
+              Icons.bar_chart,
+              size: 20,
+            ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
             minLeadingWidth: 2,
             title: const Text(
@@ -156,7 +176,9 @@ class NavDrawer extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.normal),
             ),
             visualDensity: VisualDensity.compact,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+            },
           ),
         ],
       ),

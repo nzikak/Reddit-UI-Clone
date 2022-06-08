@@ -57,22 +57,26 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(
-                child: PostSelectionContainer(),
-              )
             ];
           },
           body: TabBarView(
             controller: _tabController,
             children: [
-              ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: Post.posts.length,
-                  itemBuilder: (context, index) {
-                    final post = Post.posts[index];
-                    return PostCard(post: post);
-                  }),
+              ListView(
+                children: [
+                  const PostSelectionContainer(),
+                  Expanded(
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: Post.posts.length,
+                        itemBuilder: (context, index) {
+                          final post = Post.posts[index];
+                          return PostCard(post: post);
+                        }),
+                  ),
+                ],
+              ),
               const Text("Tab three"),
             ],
           )),
