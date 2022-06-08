@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_ui_clone/models/post.dart';
+import 'package:reddit_ui_clone/screens/home_screen/widgets/nav_drawer.dart';
 
 import 'widgets/home_app_bar.dart';
 import 'widgets/post_card.dart';
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: const NavDrawer(),
       appBar: const HomeAppBar(),
       body: NestedScrollView(
           headerSliverBuilder: (context, value) {
