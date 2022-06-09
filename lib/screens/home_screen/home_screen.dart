@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:reddit_ui_clone/models/post.dart';
 import 'package:reddit_ui_clone/models/trending_post.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/nav_drawer.dart';
-import 'package:reddit_ui_clone/screens/home_screen/widgets/popular_posts_selection_container.dart';
+import 'package:reddit_ui_clone/screens/home_screen/widgets/popular_posts_header_container.dart';
 
 import 'widgets/home_app_bar.dart';
 import 'widgets/post_card.dart';
-import 'widgets/home_posts_selection_container.dart';
+import 'widgets/home_posts_header_container.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/";
@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       drawer: const NavDrawer(),
       appBar: const HomeAppBar(),
       body: NestedScrollView(
@@ -87,7 +88,7 @@ class PopularTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const PopularPostSelectionContainer(),
+        const PopularPostsHeaderContainer(),
         const TrendingContainer(),
         const SizedBox(height: 8.0),
         ListView.builder(
@@ -197,7 +198,7 @@ class HomeTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const HomePostSelectionContainer(),
+        const HomePostHeaderContainer(),
         ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),

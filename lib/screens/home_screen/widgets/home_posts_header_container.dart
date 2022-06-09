@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomePostSelectionContainer extends StatelessWidget {
-  const HomePostSelectionContainer({
+class HomePostHeaderContainer extends StatelessWidget {
+  const HomePostHeaderContainer({
     Key? key,
   }) : super(key: key);
 

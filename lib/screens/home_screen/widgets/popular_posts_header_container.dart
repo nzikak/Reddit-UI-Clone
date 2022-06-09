@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PopularPostSelectionContainer extends StatelessWidget {
-  const PopularPostSelectionContainer({
+class PopularPostsHeaderContainer extends StatelessWidget {
+  const PopularPostsHeaderContainer({
     Key? key,
   }) : super(key: key);
 

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Post {
   final int id;
   final String title;
@@ -8,6 +10,7 @@ class Post {
   final int comments;
   final DateTime timeStamp;
   final String subRedditIcon;
+  final Color subRedditColor;
 
   Post({
     required this.id,
@@ -19,6 +22,7 @@ class Post {
     required this.comments,
     required this.timeStamp,
     required this.subRedditIcon,
+    required this.subRedditColor,
   });
 
   static List<Post> posts = [
@@ -33,6 +37,7 @@ class Post {
       comments: 45,
       timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().day, DateTime.now().hour - 1),
       subRedditIcon: "assets/flutter.png",
+      subRedditColor: Colors.lightBlueAccent
     ),
     Post(
       id: 2,
@@ -45,6 +50,7 @@ class Post {
       comments: 450,
       timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().day, DateTime.now().hour - 10),
       subRedditIcon: "assets/news.png",
+      subRedditColor: Colors.redAccent,
     ),
     Post(
       id: 1,
@@ -57,6 +63,7 @@ class Post {
       comments: 500,
       timeStamp: DateTime(2022, DateTime.now().month, DateTime.now().day, DateTime.now().hour - 2),
       subRedditIcon: "assets/android.png",
+      subRedditColor: Colors.green
     ),
   ];
 }

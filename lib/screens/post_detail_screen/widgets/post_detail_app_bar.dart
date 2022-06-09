@@ -13,10 +13,11 @@ class PostDetailAppBar extends StatelessWidget with PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.lightBlueAccent,
+      elevation: 0.0,
+      systemOverlayStyle:  SystemUiOverlayStyle(
+          statusBarColor: post.subRedditColor,
           statusBarIconBrightness: Brightness.light),
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: post.subRedditColor,
       iconTheme: const IconThemeData(color: Colors.white),
       actionsIconTheme: const IconThemeData(color: Colors.white),
       leadingWidth: 30,
