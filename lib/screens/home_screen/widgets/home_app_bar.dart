@@ -10,7 +10,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
+          statusBarColor: Colors.transparent,
           statusBarIconBrightness: Brightness.dark),
       backgroundColor: Theme.of(context).colorScheme.surface,
       elevation: 0.0,

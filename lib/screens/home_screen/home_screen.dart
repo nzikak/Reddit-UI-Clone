@@ -7,6 +7,7 @@ import 'package:reddit_ui_clone/screens/home_screen/widgets/popular_posts_header
 import 'widgets/home_app_bar.dart';
 import 'widgets/post_card.dart';
 import 'widgets/home_posts_header_container.dart';
+import 'widgets/trending_container.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/";
@@ -32,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       backgroundColor: Theme.of(context).colorScheme.background,
       drawer: const NavDrawer(),
       appBar: const HomeAppBar(),
+      endDrawer: const ProfileDrawer(),
       body: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
@@ -81,6 +83,91 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 }
 
+class ProfileDrawer extends StatelessWidget {
+  const ProfileDrawer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                height: 250,
+                margin: const EdgeInsets.only(left: 16, right: 10, top: 80),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.background,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                child: Column(
+                  children: [
+                    Icon(
+                      Icons.person,
+                      size: 250,
+                      color: Colors.grey.shade500,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            "u/obiWan-kenobi",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          SizedBox(width: 4),
+                          Icon(Icons.keyboard_arrow_down_sharp)
+                        ],
+                      ),
+                    ),
+                    OutlinedButton(
+                        onPressed: () {},
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Colors.green.shade500),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          visualDensity: VisualDensity.compact
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.circle,
+                                size: 16,
+                                color: Colors.green.shade500,
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                "Online Status: On",
+                                style: TextStyle(
+                                    color: Colors.green.shade500, fontSize: 12),
+                              )
+                            ],
+                          ),
+                        ))
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class PopularTabView extends StatelessWidget {
   const PopularTabView({Key? key}) : super(key: key);
 
@@ -100,91 +187,6 @@ class PopularTabView extends StatelessWidget {
               return PostCard(post: post);
             }),
       ],
-    );
-  }
-}
-
-class TrendingContainer extends StatelessWidget {
-  const TrendingContainer({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 16, bottom: 16, left: 16),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.trending_up,
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  "Trending today",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 90,
-              child: ListView.builder(
-                itemCount: TrendingPost.trendingPosts.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  final post = TrendingPost.trendingPosts[index];
-                  return Container(
-                    width: 150,
-                    height: 90,
-                    margin: const EdgeInsets.only(right: 8.0),
-                    child: Stack(
-                      children: [
-                        Container(
-                          width: 150,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(post.imageUrl),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            gradient: const LinearGradient(
-                              colors: [Colors.black, Colors.transparent],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.center,
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              post.title,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
@@ -215,10 +217,12 @@ class HomeTabView extends StatelessWidget {
 const bottomNavBarItems = [
   BottomNavigationBarItem(
     icon: Icon(Icons.home_outlined),
+    backgroundColor: Colors.white,
     label: "Home",
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.compass_calibration_outlined),
+    backgroundColor: Colors.white,
     label: "Unknown",
   ),
   BottomNavigationBarItem(
@@ -227,10 +231,12 @@ const bottomNavBarItems = [
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.chat_bubble_outline),
+    backgroundColor: Colors.white,
     label: "Chats",
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.notifications_none),
+    backgroundColor: Colors.white,
     label: "Notifications",
   ),
 ];

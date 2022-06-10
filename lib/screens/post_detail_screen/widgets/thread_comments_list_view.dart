@@ -85,23 +85,37 @@ class ThreadCommentContainer extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
-                        Icons.arrow_upward_outlined,
-                        size: 18,
-                        color: Colors.black.withOpacity(0.6),
+                      IconButton(
+                        onPressed: () {},
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        icon: Icon(
+                          Icons.arrow_upward_outlined,
+                          size: 18,
+                          color: Colors.black.withOpacity(0.6),
+                        ),
                       ),
-                      const SizedBox(width: 4),
-                      Text(
-                        threadComment.upvotes.toString(),
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.6),
-                            fontWeight: FontWeight.bold),
+                      const SizedBox(width: 6),
+                      SizedBox(
+                        width: 25,
+                        child: Text(
+                          threadComment.upvotes.toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.6),
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
-                      const SizedBox(width: 4),
-                      Icon(
-                        Icons.arrow_downward_outlined,
-                        size: 18,
-                        color: Colors.black.withOpacity(0.6),
+                      const SizedBox(width: 6),
+                      IconButton(
+                        onPressed: () {},
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        icon: Icon(
+                          Icons.arrow_downward_outlined,
+                          size: 18,
+                          color: Colors.black.withOpacity(0.6),
+                        ),
                       ),
                     ],
                   ),
