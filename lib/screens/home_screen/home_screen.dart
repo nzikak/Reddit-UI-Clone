@@ -91,27 +91,33 @@ class ProfileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
+      backgroundColor: Colors.white,
+      child: ListView(
+        shrinkWrap: true,
         children: [
           Stack(
+            alignment: Alignment.center,
             children: [
               Container(
-                height: 250,
-                margin: const EdgeInsets.only(left: 16, right: 10, top: 80),
+                height: 200,
+                margin: const EdgeInsets.only(left: 16, right: 16, top: 82),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.background,
+                  color:
+                  Theme.of(context).colorScheme.background.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
-              Align(
-                alignment: Alignment.topCenter,
+              Positioned(
+                top: 40,
                 child: Column(
                   children: [
-                    Icon(
-                      Icons.person,
-                      size: 250,
-                      color: Colors.grey.shade500,
+                    Image.asset(
+                      "assets/kenobi.png",
+                      height: 170,
+                      fit: BoxFit.cover,
+                      width: 180,
                     ),
+                    const SizedBox(height: 4),
                     InkWell(
                       onTap: () {},
                       child: Row(
@@ -132,12 +138,11 @@ class ProfileDrawer extends StatelessWidget {
                     OutlinedButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: Colors.green.shade500),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          visualDensity: VisualDensity.compact
-                        ),
+                            side: BorderSide(color: Colors.green.shade500),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            visualDensity: VisualDensity.compact),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Row(
@@ -162,6 +167,193 @@ class ProfileDrawer extends StatelessWidget {
               )
             ],
           ),
+          const SizedBox(height: 8),
+          InkWell(
+            onTap: () {},
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  gradient: LinearGradient(
+                      colors: [Colors.red.shade700, Colors.orange.shade700])),
+              child: Row(
+                children: const [
+                  Expanded(
+                      child: Text(
+                        "Create Avatar",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13),
+                      )),
+                  Icon(Icons.keyboard_arrow_right, color: Colors.white),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+                left: 16.0, right: 16, top: 16, bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.ac_unit,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                      const SizedBox(width: 8),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "172",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            "Karma",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black.withOpacity(0.6),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                  child: VerticalDivider(),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.contact_mail,
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                        const SizedBox(width: 8),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "5y 60d",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              "Reddit age",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black.withOpacity(0.6),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Divider(),
+          ),
+          const SizedBox(height: 8),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.account_circle_outlined),
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            title: const Text(
+              "My profile",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.album_outlined),
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            title: const Text(
+              "Create a community",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.monetization_on_outlined),
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            title: const Text(
+              "Reddit Coins",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            subtitle: const Text("5000 Coins"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.shield_outlined),
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            title: const Text(
+              "Reddit Premium",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            subtitle: const Text("Ads-free browsing"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.bookmarks_outlined),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            title: const Text(
+              "Saved",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.history_toggle_off_outlined),
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            title: const Text(
+              "History",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ListTile(
+              onTap: () {},
+              leading: const Icon(Icons.settings),
+              dense: true,
+              visualDensity: VisualDensity.compact,
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+              title: const Text(
+                "Settings",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
         ],
       ),
     );
