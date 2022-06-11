@@ -104,8 +104,10 @@ class ProfileDrawer extends StatelessWidget {
                     height: 200,
                     margin: const EdgeInsets.only(left: 16, right: 16, top: 62),
                     decoration: BoxDecoration(
-                      color:
-                      Theme.of(context).colorScheme.background.withOpacity(0.5),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .background
+                          .withOpacity(0.5),
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
@@ -146,7 +148,8 @@ class ProfileDrawer extends StatelessWidget {
                                 ),
                                 visualDensity: VisualDensity.compact),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -159,7 +162,8 @@ class ProfileDrawer extends StatelessWidget {
                                   Text(
                                     "Online Status: On",
                                     style: TextStyle(
-                                        color: Colors.green.shade500, fontSize: 12),
+                                        color: Colors.green.shade500,
+                                        fontSize: 12),
                                   )
                                 ],
                               ),
@@ -174,22 +178,25 @@ class ProfileDrawer extends StatelessWidget {
                 onTap: () {},
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                          colors: [Colors.red.shade700, Colors.orange.shade700])),
+                      gradient: LinearGradient(colors: [
+                        Colors.red.shade700,
+                        Colors.orange.shade700
+                      ])),
                   child: Row(
                     children: const [
                       Expanded(
                           child: Text(
-                            "Create Avatar",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 13),
-                          )),
+                        "Create Avatar",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13),
+                      )),
                       Icon(Icons.keyboard_arrow_right, color: Colors.white),
                     ],
                   ),
@@ -276,9 +283,13 @@ class ProfileDrawer extends StatelessWidget {
               const SizedBox(height: 8),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.account_circle_outlined),
+                leading: Icon(
+                  Icons.account_circle_outlined,
+                  color: Colors.grey.shade600,
+                ),
                 dense: true,
                 visualDensity: VisualDensity.compact,
+                horizontalTitleGap: 4,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                 title: const Text(
                   "My profile",
@@ -287,9 +298,13 @@ class ProfileDrawer extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.album_outlined),
+                leading: Icon(
+                  Icons.album_outlined,
+                  color: Colors.grey.shade600,
+                ),
                 dense: true,
                 visualDensity: VisualDensity.compact,
+                horizontalTitleGap: 4,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                 title: const Text(
                   "Create a community",
@@ -298,9 +313,13 @@ class ProfileDrawer extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.monetization_on_outlined),
+                leading: Icon(
+                  Icons.monetization_on_outlined,
+                  color: Colors.grey.shade600,
+                ),
                 dense: true,
                 visualDensity: VisualDensity.compact,
+                horizontalTitleGap: 4,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                 title: const Text(
                   "Reddit Coins",
@@ -310,9 +329,13 @@ class ProfileDrawer extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.shield_outlined),
+                leading: Icon(
+                  Icons.shield_outlined,
+                  color: Colors.grey.shade600,
+                ),
                 dense: true,
                 visualDensity: VisualDensity.compact,
+                horizontalTitleGap: 4,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                 title: const Text(
                   "Reddit Premium",
@@ -322,10 +345,14 @@ class ProfileDrawer extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.bookmarks_outlined),
+                leading: Icon(
+                  Icons.bookmarks_outlined,
+                  color: Colors.grey.shade600,
+                ),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                 dense: true,
                 visualDensity: VisualDensity.compact,
+                horizontalTitleGap: 4,
                 title: const Text(
                   "Saved",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -333,7 +360,11 @@ class ProfileDrawer extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.history_toggle_off_outlined),
+                leading: Icon(
+                  Icons.history_toggle_off_outlined,
+                  color: Colors.grey.shade600,
+                ),
+                horizontalTitleGap: 4,
                 dense: true,
                 visualDensity: VisualDensity.compact,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
@@ -342,7 +373,6 @@ class ProfileDrawer extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
-
             ],
           ),
           Expanded(
@@ -350,8 +380,12 @@ class ProfileDrawer extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: ListTile(
                 onTap: () {},
-                leading: const Icon(Icons.settings),
+                leading: Icon(
+                  Icons.settings,
+                  color: Colors.grey.shade600,
+                ),
                 dense: true,
+                horizontalTitleGap: 4,
                 visualDensity: VisualDensity.compact,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                 title: const Text(
