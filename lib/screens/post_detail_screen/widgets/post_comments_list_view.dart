@@ -29,10 +29,11 @@ class PostCommentsListView extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.background,
-                                borderRadius: BorderRadius.circular(50)),
-                            child: const Icon(Icons.person)),
+                          decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.background,
+                              borderRadius: BorderRadius.circular(50)),
+                          child: const Icon(Icons.person),
+                        ),
                         const SizedBox(width: 8),
                         Text(
                           comment.userName,
