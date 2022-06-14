@@ -9,6 +9,7 @@ import 'package:reddit_ui_clone/screens/notification_screen/notification_screen.
 import 'package:reddit_ui_clone/screens/notification_screen/widgets/notification_screen_app_bar.dart';
 
 import 'widgets/home_app_bar.dart';
+import 'widgets/home_widget.dart';
 import 'widgets/post_card.dart';
 import 'widgets/home_posts_header_container.dart';
 import 'widgets/profile_drawer.dart';
@@ -24,11 +25,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-
   int _selectedItemIndex = 0;
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onBottomNavItemTap,
         currentIndex: _selectedItemIndex,
-        items: bottomNavBarItems,
+        items: _bottomBarItems(_selectedItemIndex),
         unselectedItemColor:
             Theme.of(context).colorScheme.onSurface.withAlpha(150),
         selectedItemColor: Theme.of(context).colorScheme.onSurface,
@@ -68,149 +65,50 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       _selectedItemIndex = index;
     });
   }
-}
 
-class HomeWidget extends StatefulWidget {
-
-  const HomeWidget({
-    Key? key
-  }) : super(key: key);
-
-
-  @override
-  State<HomeWidget> createState() => _HomeWidgetState();
-}
-
-class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
-
-  late final TabController _tabController;
-
-  @override
-  void initState() {
-    _tabController = TabController(length: 2, vsync: this);
-    super.initState();
-  }
-
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return NestedScrollView(
-        headerSliverBuilder: (context, value) {
-          return [
-            SliverToBoxAdapter(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surface,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        blurRadius: 2.0,
-                        offset: const Offset(2.0, 2.0),
-                      )
-                    ]),
-                alignment: Alignment.center,
-                child: SizedBox(
-                  width: 180,
-                  child: TabBar(
-                      controller: _tabController,
-                      labelColor: Colors.black,
-                      unselectedLabelColor: Colors.grey.shade600,
-                      indicatorColor: Theme.of(context).colorScheme.secondary,
-                      tabs: const [
-                        Tab(text: "Home"),
-                        Tab(text: "Popular"),
-                      ]),
-                ),
-              ),
-            ),
-          ];
-        },
-        body: TabBarView(
-          controller: _tabController,
-          children: const [
-            HomeTabView(),
-            PopularTabView(),
-          ],
-        ));
+  List<BottomNavigationBarItem> _bottomBarItems(int selectedIndex) {
+    return [
+      BottomNavigationBarItem(
+        icon: Icon(
+          selectedIndex == 0 ? Icons.home_filled : Icons.home_outlined,
+          size: 30,
+        ),
+        backgroundColor: Colors.white,
+        label: "Home",
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          selectedIndex == 1
+              ? Icons.compass_calibration
+              : Icons.compass_calibration_outlined,
+          size: 30,
+        ),
+        backgroundColor: Colors.white,
+        label: "Unknown",
+      ),
+      const BottomNavigationBarItem(
+        icon: Icon(
+          Icons.add,
+          size: 30,
+        ),
+        label: "Create",
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          selectedIndex == 3 ? Icons.chat_bubble : Icons.chat_bubble_outline,
+          size: 30,
+        ),
+        backgroundColor: Colors.white,
+        label: "Chats",
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          selectedIndex == 4 ? Icons.notifications : Icons.notifications_none,
+          size: 30,
+        ),
+        backgroundColor: Colors.white,
+        label: "Notifications",
+      ),
+    ];
   }
 }
-
-
-class PopularTabView extends StatelessWidget {
-  const PopularTabView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        const PopularPostsHeaderContainer(),
-        const TrendingContainer(),
-        const SizedBox(height: 8.0),
-        ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: Post.posts.length,
-            itemBuilder: (context, index) {
-              final post = Post.posts[index];
-              return PostCard(post: post);
-            }),
-      ],
-    );
-  }
-}
-
-class HomeTabView extends StatelessWidget {
-  const HomeTabView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        const HomePostHeaderContainer(),
-        ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: Post.posts.length,
-            itemBuilder: (context, index) {
-              final post = Post.posts[index];
-              return PostCard(post: post);
-            }),
-      ],
-    );
-  }
-}
-
-const bottomNavBarItems = [
-  BottomNavigationBarItem(
-    icon: Icon(Icons.home_outlined),
-    backgroundColor: Colors.white,
-    label: "Home",
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.compass_calibration_outlined),
-    backgroundColor: Colors.white,
-    label: "Unknown",
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.add),
-    label: "Create",
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.chat_bubble_outline),
-    backgroundColor: Colors.white,
-    label: "Chats",
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.notifications_none),
-    backgroundColor: Colors.white,
-    label: "Notifications",
-  ),
-];
