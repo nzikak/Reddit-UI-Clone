@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_ui_clone/models/post.dart';
 import 'package:reddit_ui_clone/models/trending_post.dart';
+import 'package:reddit_ui_clone/screens/chat_screen/widgets/chat_screen_app_bar.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/nav_drawer.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/popular_posts_header_container.dart';
+import 'package:reddit_ui_clone/screens/notification_screen/notification_screen.dart';
+import 'package:reddit_ui_clone/screens/notification_screen/widgets/notification_screen_app_bar.dart';
 
 import 'widgets/home_app_bar.dart';
 import 'widgets/post_card.dart';
@@ -21,6 +24,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late final TabController _tabController;
+  int _selectedItemIndex = 0;
+
 
   @override
   void initState() {
@@ -33,47 +38,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       drawer: const NavDrawer(),
-      appBar: const HomeAppBar(),
+      appBar: [
+        const HomeAppBar(),
+        const HomeAppBar(),
+        const HomeAppBar(), 
+        const ChatScreenAppBar(),
+        const NotificationAppBar()
+      ].elementAt(_selectedItemIndex) as PreferredSizeWidget?,
       endDrawer: const ProfileDrawer(),
-      body: NestedScrollView(
-          headerSliverBuilder: (context, value) {
-            return [
-              SliverToBoxAdapter(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surface,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          blurRadius: 2.0,
-                          offset: const Offset(2.0, 2.0),
-                        )
-                      ]),
-                  alignment: Alignment.center,
-                  child: SizedBox(
-                    width: 180,
-                    child: TabBar(
-                        controller: _tabController,
-                        labelColor: Colors.black,
-                        indicatorColor: Theme.of(context).colorScheme.secondary,
-                        tabs: const [
-                          Tab(text: "Home"),
-                          Tab(text: "Popular"),
-                        ]),
-                  ),
-                ),
-              ),
-            ];
-          },
-          body: TabBarView(
-            controller: _tabController,
-            children: const [
-              HomeTabView(),
-              PopularTabView(),
-            ],
-          )),
+      body: [
+        HomeWidget(tabController: _tabController),
+        const Text("Coming Soon"),
+        const Text("Coming Soon"),
+        const Text("Coming Soon"),
+        const NotificationScreen(),
+      ].elementAt(_selectedItemIndex),
       bottomNavigationBar: BottomNavigationBar(
-
+        onTap: _onBottomNavItemTap,
+        currentIndex: _selectedItemIndex,
         items: bottomNavBarItems,
         unselectedItemColor:
             Theme.of(context).colorScheme.onSurface.withAlpha(150),
@@ -82,6 +64,63 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         showUnselectedLabels: false,
       ),
     );
+  }
+
+  void _onBottomNavItemTap(int index) {
+    setState(() {
+      _selectedItemIndex = index;
+    });
+  }
+}
+
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({
+    Key? key,
+    required TabController tabController,
+  }) : _tabController = tabController, super(key: key);
+
+  final TabController _tabController;
+
+  @override
+  Widget build(BuildContext context) {
+    return NestedScrollView(
+        headerSliverBuilder: (context, value) {
+          return [
+            SliverToBoxAdapter(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 2.0,
+                        offset: const Offset(2.0, 2.0),
+                      )
+                    ]),
+                alignment: Alignment.center,
+                child: SizedBox(
+                  width: 180,
+                  child: TabBar(
+                      controller: _tabController,
+                      labelColor: Colors.black,
+                      unselectedLabelColor: Colors.grey.shade600,
+                      indicatorColor: Theme.of(context).colorScheme.secondary,
+                      tabs: const [
+                        Tab(text: "Home"),
+                        Tab(text: "Popular"),
+                      ]),
+                ),
+              ),
+            ),
+          ];
+        },
+        body: TabBarView(
+          controller: _tabController,
+          children: const [
+            HomeTabView(),
+            PopularTabView(),
+          ],
+        ));
   }
 }
 

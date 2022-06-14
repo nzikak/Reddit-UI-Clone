@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reddit_ui_clone/models/notification_model.dart' as Not;
+import 'widgets/messages_tab_container.dart';
+import 'widgets/notifications_tab_container.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key}) : super(key: key);
@@ -27,66 +28,42 @@ class _NotificationScreenState extends State<NotificationScreen>
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
-      headerSliverBuilder: (context, value) {
-        return [
-          SliverToBoxAdapter(
-            child: Row(
-              children: [
-                TabBar(controller: _controller, tabs: const [
-                  Tab(text: "Notifications"),
-                  Tab(text: "Messages")
-                ])
-              ],
-            ),
-          )
-        ];
-      },
-      body: TabBarView(children: [
-        ListView.builder(
-          itemCount: Not.Notification.notifications.length,
-          itemBuilder: (context, index) {
-            final notification = Not.Notification.notifications[index];
-            return ListTile(
-              leading: SizedBox(
-                height: 40,
-                width: 40,
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      notification.icon,
-                      width: 25,
-                      height: 25,
-                    ),
-                    Positioned(
-                      top: 20,
-                      child: Icon(
-                        notification.notificationType,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                    )
-                  ],
+        headerSliverBuilder: (context, value) {
+          return [
+            SliverToBoxAdapter(
+              child: Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 2.0,
+                        offset: const Offset(1.0, 1.0),
+                      )
+                    ]),
+                child: SizedBox(
+                  width: 250,
+                  child: TabBar(
+                      controller: _controller,
+                      indicatorColor: Theme.of(context).colorScheme.secondary,
+                      labelColor: Colors.black,
+                      unselectedLabelColor: Colors.grey.shade600,
+                      tabs: const [
+                        Tab(text: "Notifications"),
+                        Tab(text: "Messages")
+                      ]),
                 ),
               ),
-              title: Row(
-                children: [
-                  Text(
-                    notification.title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.normal
-                    ),
-                  ),
-                  const SizedBox(width: 3),
-                  Text("•"),
-                  const SizedBox(width: 3),
-                  Text(notification.time),
-                ],
-              ),
-              trailing: Icon(Icons.more_vert),
-              subtitle: Text(notification.description),
-            );
-          },
-        )
-      ]),
-    );
+            )
+          ];
+        },
+        body: TabBarView(
+          controller: _controller,
+          children: const [
+            NotificationsTabContainer(),
+            MessagesTabContainer()
+          ],
+        ));
   }
 }
