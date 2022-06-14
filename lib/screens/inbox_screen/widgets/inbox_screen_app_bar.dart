@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class NotificationAppBar extends StatelessWidget with PreferredSizeWidget {
-  const NotificationAppBar({Key? key}) : super(key: key);
+class InboxAppBar extends StatelessWidget with PreferredSizeWidget {
+  const InboxAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

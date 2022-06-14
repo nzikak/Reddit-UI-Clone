@@ -8,6 +8,7 @@ class MessagesTabContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: Message.messages.length,
+      shrinkWrap: true,
       itemBuilder: (context, index) {
         final message = Message.messages[index];
         return Container(

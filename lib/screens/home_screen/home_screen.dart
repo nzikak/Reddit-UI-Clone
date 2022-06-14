@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:reddit_ui_clone/models/post.dart';
-import 'package:reddit_ui_clone/models/trending_post.dart';
 import 'package:reddit_ui_clone/screens/chat_screen/chat_screen.dart';
 import 'package:reddit_ui_clone/screens/chat_screen/widgets/chat_screen_app_bar.dart';
 import 'package:reddit_ui_clone/screens/create_post_screen/create_post_screen.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/nav_drawer.dart';
-import 'package:reddit_ui_clone/screens/home_screen/widgets/popular_posts_header_container.dart';
-import 'package:reddit_ui_clone/screens/notification_screen/notification_screen.dart';
-import 'package:reddit_ui_clone/screens/notification_screen/widgets/notification_screen_app_bar.dart';
-
+import 'package:reddit_ui_clone/screens/inbox_screen/inbox_screen.dart';
+import 'package:reddit_ui_clone/screens/inbox_screen/widgets/inbox_screen_app_bar.dart';
 import 'widgets/home_app_bar.dart';
 import 'widgets/home_widget.dart';
-import 'widgets/post_card.dart';
-import 'widgets/home_posts_header_container.dart';
 import 'widgets/profile_drawer.dart';
-import 'widgets/trending_container.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/";
@@ -38,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         const HomeAppBar(),
         const HomeAppBar(),
         const ChatScreenAppBar(),
-        const NotificationAppBar()
+        const InboxAppBar()
       ].elementAt(_selectedItemIndex) as PreferredSizeWidget?,
       endDrawer: const ProfileDrawer(),
       body: [
@@ -46,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         const Text("Coming Soon"),
         const Text("Coming Soon"),
         const ChatScreen(),
-        const NotificationScreen(),
+        const InboxScreen(),
       ].elementAt(_selectedItemIndex),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
