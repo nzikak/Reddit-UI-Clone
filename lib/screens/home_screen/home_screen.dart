@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_ui_clone/models/post.dart';
 import 'package:reddit_ui_clone/models/trending_post.dart';
+import 'package:reddit_ui_clone/screens/chat_screen/chat_screen.dart';
 import 'package:reddit_ui_clone/screens/chat_screen/widgets/chat_screen_app_bar.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/nav_drawer.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/popular_posts_header_container.dart';
@@ -23,15 +24,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  late final TabController _tabController;
+
   int _selectedItemIndex = 0;
 
 
-  @override
-  void initState() {
-    _tabController = TabController(length: 2, vsync: this);
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +38,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       appBar: [
         const HomeAppBar(),
         const HomeAppBar(),
-        const HomeAppBar(), 
+        const HomeAppBar(),
         const ChatScreenAppBar(),
         const NotificationAppBar()
       ].elementAt(_selectedItemIndex) as PreferredSizeWidget?,
       endDrawer: const ProfileDrawer(),
       body: [
-        HomeWidget(tabController: _tabController),
+        const HomeWidget(),
         const Text("Coming Soon"),
         const Text("Coming Soon"),
-        const Text("Coming Soon"),
+        const ChatScreen(),
         const NotificationScreen(),
       ].elementAt(_selectedItemIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -73,13 +70,33 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 }
 
-class HomeWidget extends StatelessWidget {
-  const HomeWidget({
-    Key? key,
-    required TabController tabController,
-  }) : _tabController = tabController, super(key: key);
+class HomeWidget extends StatefulWidget {
 
-  final TabController _tabController;
+  const HomeWidget({
+    Key? key
+  }) : super(key: key);
+
+
+  @override
+  State<HomeWidget> createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
+
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
