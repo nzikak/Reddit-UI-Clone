@@ -64,7 +64,9 @@ class HomePostHeaderContainer extends StatelessWidget {
             ],
           ),
         ),
-        const Divider()
+        const Divider(
+          height: 0,
+        )
       ],
     );
   }

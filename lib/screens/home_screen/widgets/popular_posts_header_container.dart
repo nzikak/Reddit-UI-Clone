@@ -101,7 +101,7 @@ class PopularPostsHeaderContainer extends StatelessWidget {
             ],
           ),
         ),
-        const Divider()
+        const Divider(height: 0,)
       ],
     );
   }

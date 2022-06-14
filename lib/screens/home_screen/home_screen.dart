@@ -3,6 +3,7 @@ import 'package:reddit_ui_clone/models/post.dart';
 import 'package:reddit_ui_clone/models/trending_post.dart';
 import 'package:reddit_ui_clone/screens/chat_screen/chat_screen.dart';
 import 'package:reddit_ui_clone/screens/chat_screen/widgets/chat_screen_app_bar.dart';
+import 'package:reddit_ui_clone/screens/create_post_screen/create_post_screen.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/nav_drawer.dart';
 import 'package:reddit_ui_clone/screens/home_screen/widgets/popular_posts_header_container.dart';
 import 'package:reddit_ui_clone/screens/notification_screen/notification_screen.dart';
@@ -48,7 +49,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         const NotificationScreen(),
       ].elementAt(_selectedItemIndex),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: _onBottomNavItemTap,
+        onTap: (index) {
+          _onBottomNavItemTap(index, context);
+        },
+        type: BottomNavigationBarType.fixed,
         currentIndex: _selectedItemIndex,
         items: _bottomBarItems(_selectedItemIndex),
         unselectedItemColor:
@@ -60,10 +64,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  void _onBottomNavItemTap(int index) {
-    setState(() {
-      _selectedItemIndex = index;
-    });
+  void _onBottomNavItemTap(int index, BuildContext context) {
+    if (index == 2) {
+      Navigator.of(context).pushNamed(CreatePostScreen.routeName);
+    } else {
+      setState(() {
+        _selectedItemIndex = index;
+      });
+    }
   }
 
   List<BottomNavigationBarItem> _bottomBarItems(int selectedIndex) {
@@ -71,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       BottomNavigationBarItem(
         icon: Icon(
           selectedIndex == 0 ? Icons.home_filled : Icons.home_outlined,
-          size: 30,
+          size: 24,
         ),
         backgroundColor: Colors.white,
         label: "Home",
@@ -81,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           selectedIndex == 1
               ? Icons.compass_calibration
               : Icons.compass_calibration_outlined,
-          size: 30,
+          size: 24,
         ),
         backgroundColor: Colors.white,
         label: "Unknown",
@@ -89,14 +97,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       const BottomNavigationBarItem(
         icon: Icon(
           Icons.add,
-          size: 30,
+          size: 24,
         ),
         label: "Create",
       ),
       BottomNavigationBarItem(
         icon: Icon(
           selectedIndex == 3 ? Icons.chat_bubble : Icons.chat_bubble_outline,
-          size: 30,
+          size: 24,
         ),
         backgroundColor: Colors.white,
         label: "Chats",
@@ -104,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       BottomNavigationBarItem(
         icon: Icon(
           selectedIndex == 4 ? Icons.notifications : Icons.notifications_none,
-          size: 30,
+          size: 24,
         ),
         backgroundColor: Colors.white,
         label: "Notifications",
