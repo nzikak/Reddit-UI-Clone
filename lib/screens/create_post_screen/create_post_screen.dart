@@ -80,7 +80,10 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                     _isButtonEnabled = _controller.text.isNotEmpty;
                   });
                 },
-                style: const TextStyle(fontSize: 22),
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
                 cursorColor: Theme.of(context).colorScheme.secondary,
                 cursorHeight: 30,
                 textAlignVertical: TextAlignVertical.center,
@@ -123,31 +126,31 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
             Icon(
               Icons.image_outlined,
               color: Colors.black.withOpacity(0.7),
-              size: 30,
+              size: 28,
             ),
             const SizedBox(width: 20),
             Icon(
               Icons.play_circle_outline,
               color: Colors.black.withOpacity(0.7),
-              size: 30,
+              size: 28,
             ),
             const SizedBox(width: 20),
             Icon(
               Icons.sticky_note_2_outlined,
               color: Colors.black.withOpacity(0.7),
-              size: 30,
+              size: 28,
             ),
             const SizedBox(width: 20),
             Icon(
               Icons.link,
               color: Colors.black.withOpacity(0.7),
-              size: 30,
+              size: 28,
             ),
             const SizedBox(width: 20),
             Icon(
               Icons.poll_outlined,
               color: Colors.black.withOpacity(0.7),
-              size: 30,
+              size: 28,
             ),
           ],
         ),
