@@ -11,10 +11,10 @@ Dart v2.17.0
 <img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_two.jpg" width=250 alt="Popular Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_three.jpg" width=250 alt="Left Drawer" />  
 
-<br /><img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_four.jpg" width=300 alt="Right Drawer" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_five.jpg" width=300 alt="Post Detail Screen" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_six.jpg" width=300 alt="Create Post Screen" />  
+<br /><img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_four.jpg" width=250 alt="Right Drawer" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_five.jpg" width=250 alt="Post Detail Screen" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_six.jpg" width=250 alt="Create Post Screen" />  
 
-<br /><img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_seven.jpg" width=300 alt="Chat Screen" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_eight.jpg" width=300 alt="Notifications Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_nine.jpg" width=300 alt="Messages Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
+<br /><img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_seven.jpg" width=250 alt="Chat Screen" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_eight.jpg" width=250 alt="Notifications Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_nine.jpg" width=250 alt="Messages Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
