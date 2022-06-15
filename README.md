@@ -1,16 +1,20 @@
 # reddit_ui_clone
 
-A flutter clone of the Reddit android app UI
+A replication of the Reddit Android app UI using Flutter.
 
-## Getting Started
+## SDK Version
+Flutter v3.0.0  
+Dart v2.17.0
 
-This project is a starting point for a Flutter application.
+## Screenshots
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_one.jpg" width=300 alt="Home Tab"/>&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_two.jpg" width=300 alt="Popular Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_three.jpg" width=300 alt="Left Drawer" />  
 
-A few resources to get you started if this is your first Flutter project:
+<br /><img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_four.jpg" width=300 alt="Right Drawer" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_five.jpg" width=300 alt="Post Detail Screen" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_six.jpg" width=300 alt="Create Post Screen" />  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<br /><img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_seven.jpg" width=300 alt="Chat Screen" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_eight.jpg" width=300 alt="Notifications Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_nine.jpg" width=300 alt="Messages Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
