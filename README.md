@@ -7,9 +7,9 @@ Flutter v3.0.0
 Dart v2.17.0
 
 ## Screenshots
-<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_one.jpg" width=300 alt="Home Tab"/>&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_two.jpg" width=300 alt="Popular Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_three.jpg" width=300 alt="Left Drawer" />  
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_one.jpg" width=250 alt="Home Tab"/>&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_two.jpg" width=250 alt="Popular Tab" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_three.jpg" width=250 alt="Left Drawer" />  
 
 <br /><img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_four.jpg" width=300 alt="Right Drawer" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/nzikak/Reddit-UI-Clone/blob/main/screenshots/Screenshot_five.jpg" width=300 alt="Post Detail Screen" />&nbsp;&nbsp;&nbsp;&nbsp;
